@@ -1,55 +1,72 @@
 <?php
 session_start();
 ?>
-<!--  Menu de Navegacion -->
-<nav class="uk-navbar-container uk-background-secondary" uk-navbar>
+<!-- Navegación-->
+<header>
+    <nav class="uk-navbar-container" uk-navbar>
 
-    <div class="uk-navbar-right">
+        <div class="uk-navbar-left">
+             <ul class="uk-navbar-nav">
+                <li class="uk-active uk-text-uppercase"><a href="/daq-pagina/index.php" uk-icon="database">PHP y Arduino</a></li>
+            </ul>
 
-        <ul class="uk-navbar-nav">
-            <li class="uk-active uk-text-uppercase"><a><span>Arduino + PHP</span></a></li>
-            <li class="">
-                <a href="">Opciones <span uk-icon="triangule-down"></span></a>
-                <div class="uk-navbar-dropdown" uk-dropdown="mode: click">
-                    <hr>
-                    <ul class="uk-nav uk-navbar-dropdown-nav">
-                        <li class="uk-acive"><a href="/daq-pagina/index.php" uk-icon="home">Inicio </a></li>
-                    </ul>
-                    <hr>
-                    <?php
+        </div>
+        <div class="uk-navbar-right">
 
-                    if (!isset($_SESSION['username'])) {
-                        echo '                            
-                            <ul class="uk-nav uk-navbar-dropdown-nav">
-                                <li class="uk-active uk-text-uppercase">Sesiones</li>
-                                <hr>
-                                <li><a href="/daq-pagina/recursos/php/login/login.php">Iniciar Sesion: <span uk-icon="sign-in"></span></a></li>
-                            </ul>
-                            ';
-                    } else if (isset($_SESSION['username']) && $_SESSION['rol'] == "administrador") {
-                        echo '
+            <ul class="uk-navbar-nav">
+
+                <li class="">
+
+                    <a href="">Opciones <span uk-icon="chevron-down"></span></a>
+
+                    <div class="uk-dropdown" uk-dropdown="mode: click">
+
                         <hr>
-                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li class="uk-active uk-text-uppercase">Configuracion</li>
-                            <hr>
-                            <li><a href="/daq-pagina/recursos/php/configuracion/configuracion.php">Configurar usuario</a></li>
-                            <li><a href="/daq-pagina/recursos/php/registro-usuario/registro.php">Registrar Usuarios</a></li>
-                        </ul>
-                        <hr>
-                        <ul class="uk-nav uk-navbar-dropdown-nav">
-                            <li class="uk-active uk-text-uppercase">Sesiones</li>
-                            <hr>
-                            <li><a href="/daq-pagina/recursos/php/login/logout.php">Cerrar Sesion <span uk-icon="sign-out"></span></a></li>
-                        </ul>                        
-                        ';
-                    }
 
-                    ?>
-                </div>
+                            <div class="uk-text-center">
 
-            </li>
-        </ul>
+                                <?php
+                                if(!isset($_SESSION['username'])){
+                                    echo    '
+                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    
+                                        <li class="uk-active uk-text-uppercase">Sesiones</li>
+                                        <hr>
 
-    </div>
+                                        <li class="uk-active uk-text-uppercase"><a href="/daq-pagina/recursos/php/login/login.php" class="">Iniciar Sesion<span uk-icon="user"></span></a></li>
 
-</nav>
+                                    </ul>
+                                    ';
+                                }else if(isset($_SESSION['username']) && $_SESSION['rol'] == "administrador"){
+                                    echo '
+                                    
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
+
+                                            <li class="uk-active uk-text-uppercase">Configuración</li>
+                                            <hr>
+
+                                            <li class="uk-active"><a href="/daq-pagina/recursos/php/configuracion/configuracion.php" class="">Configuración de un Usuario<span uk-icon="info"></span></a></li>
+                                            <hr>
+                                            <li class="uk-active"><a href="/daq-pagina/recursos/php/registro-usuario/registro.php" class="">Registrar un Usuario <span uk-icon="users"></span></a></li>
+                                            <hr>
+                                            <li class="uk-active uk-text-uppercase"><a href="/daq-pagina/recursos/php/login/logout.php" class="">Cerrar Sesion<span uk-icon="sign-out"></span></a></li>
+                                        </ul>
+
+                                    ';
+
+                                }
+
+                                ?>
+
+                            </div>
+
+                    </div>
+
+                </li>
+
+            </ul>
+
+        </div>
+    </nav>
+
+</header>

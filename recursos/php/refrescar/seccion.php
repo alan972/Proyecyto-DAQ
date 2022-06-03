@@ -4,20 +4,6 @@ $p = mysqli_query($conexion ,"UPDATE sensor SET valor = $var where tipo = 'humed
 $t = mysqli_query($conexion ,"UPDATE sensor SET valor = $var_temp where tipo = 'temperatura'") or die ("problemas");
 $g = mysqli_query($conexion ,"UPDATE sensor SET valor = $var_gas where tipo = 'gas'") or die ("problemas");
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-</head>
-<body>
-
-    <!--  Creacion de la trabla que mostrara los datos  -->
-<div class="uk-container-expand">
-     <div class="uk-container">
-      <br>
-      <br>
        <table class="uk-table uk-table-divider uk-background-secondary uk-light" >
   <thead>
     <tr>
@@ -42,7 +28,3 @@ $g = mysqli_query($conexion ,"UPDATE sensor SET valor = $var_gas where tipo = 'g
         ?>
   </tbody>
 </table>
-        </div> 
-        </div>
-    </body>
-</html>

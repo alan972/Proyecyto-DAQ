@@ -55,18 +55,16 @@ if (!isset($rol) == 'administrador') {
                     $num = mysqli_query($conexion, "select * from personas where nombre like '%$nombre%' or apellido like '%$nombre%' or id='$nombre'");
 
                     if ($nombre == "") {
-                        echo '
-        <div class="uk-alert uk-alert-danger uk-text-center">Ingrese un nombre</div>
-        ';
+                        echo ' <div class="uk-margin uk-text-center">
+                        <label for="" class="uk-alert uk-alert-danger">Ingrese un nombre</label></div> ';
                     } else {
                         if (mysqli_num_rows($num) <= 0) {
-                            echo '
-        <div class="uk-alert uk-alert-danger uk-text-center">Nombre no existente</div>            
-        ';
+                            echo '<div class="uk-margin uk-text-center">
+                            <label for="" class="uk-alert uk-alert-danger">El nombre no está en la base de datos</label></div>';
                         } else {
 
                             echo '
-            <table class="uk-table">
+            <table class="uk-table uk-table-striped">
                 <tr>
                 <td>id: </td>
                 <td>Nombre:</td>
@@ -81,9 +79,9 @@ if (!isset($rol) == 'administrador') {
                 ?>
             <tr>
                 <td><?php
-                                        $id = $myrow['id'];
-                                        ?><input type="text" value="<?php echo $myrow['id']; ?>" name="id"
-                        class="uk-input uk-form-width-medium"></td>
+                    $id = $myrow['id'];
+                    ?>
+                <input type="text" value="<?php echo $myrow['id']; ?>" name="id" class="uk-input uk-form-width-medium"></td>
                 <td><?php echo $myrow['nombre']; ?></td>
                 <td><?php echo $myrow['email']; ?></td>
                 <td><?php echo $myrow['user'];  ?></td>
@@ -94,10 +92,10 @@ if (!isset($rol) == 'administrador') {
             
             <td><a href="configuracion.php?tipo=borrar&id=';
                                     echo $id;
-                                    echo '" class="uk-button uk-button-secondary">Borrar</a>
+                                    echo '" class="uk-button uk-button-secondary">Borrar <span uk-icon="trash"></span> </a>
             <td><a href="configuracion.php?tipo=modificar&id=';
                                     echo $id;
-                                    echo '"class="uk-button uk-button-secondary">Modificar</a>
+                                    echo '"class="uk-button uk-button-secondary">Modificar  <span uk-icon="pencil"></span></a>
             </form>';
 
 

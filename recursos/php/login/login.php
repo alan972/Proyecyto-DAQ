@@ -33,8 +33,9 @@ include('../header/header.php');
         if ( isset($_SESSION['username']) && isset($_SESSION['userid']) && $_SESSION['username'] != '' && $_SESSION['userid'] != '0' ){
     
 	echo '<div class="session_on">
-        Ya iniciaste sesión | Ahora has un <a href="javascript:void(0);" id="sessionKiller">logout</a>.<span class="timer" id="timer"  style="margin-left: 10px;"></span>
-    </div>';}
+        Ya iniciaste sesión | Ahora puedes cerrar sesión <a href="javascript:void(0);" id="sessionKiller">logout</a>.<span class="timer" id="timer"  style="margin-left: 10px;"></span>
+     o si no, volver al inicio <a href="/daq-pagina/index.php" class="">Inicio</a>
+        </div>';}
         else{
             echo'
             <form action="" method="post" class="uk-form-stacked">
@@ -59,13 +60,14 @@ include('../header/header.php');
         }
         
         ?>
-        <div class="uk-alert-primary">
-            <div class="uk-text-center">
-              <div id="alertBoxes"></div>
+        <div class="uk-text-center">
+            <div class="uk-alert-primary uk-width-1-2">
+                <div class="uk-text-center">
+                    <div id="alertBoxes"></div>
+                </div>
             </div>
         </div>
     </div>
-    
 </div>
 </body>
 </html>
